@@ -416,6 +416,6 @@ inline float toRadians(float degrees)
 }
 
 
-QML_DECLARE_TYPE(Box2DWorld)
+Q_DECLARE_METATYPE(Box2DWorld)
 
 #endif // BOX2DWORLD_H

@@ -1,6 +1,7 @@
-import QtQuick 2.2
+import QtQuick
+import QtQuick.Controls
+
 import Box2D 2.0
-import QtQuick.Controls 1.1
 import "../shared"
 
 Rectangle {
@@ -20,8 +21,8 @@ Rectangle {
         y: 50
         width: 100
         height: 50
-        maximumValue: 50
-        minimumValue: 20
+        to: 50
+        from: 20
         value: 30
     }
 

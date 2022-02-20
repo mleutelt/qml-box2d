@@ -147,8 +147,8 @@ Window {
 
                 model: scenesList;
                 delegate: Item {
-                    height: 50;
-                    width: parent.width;
+                    height: 50
+                    width: ListView.view.width
 
                     Text {
                         anchors.centerIn: parent;

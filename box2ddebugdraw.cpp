@@ -36,6 +36,7 @@
 #include <QPainter>
 #include <QSGNode>
 #include <QSGFlatColorMaterial>
+#include <QOpenGLFunctions>
 #include <QtCore/qmath.h>
 
 class DebugDraw : public b2Draw

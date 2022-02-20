@@ -33,9 +33,9 @@
 
 #include <QQuickItem>
 #include <Box2D.h>
+#include "box2dworld.h"
 
 class Box2DFixture;
-class Box2DWorld;
 
 /**
  * The Box2D body, build up from a list of shapes.
@@ -44,7 +44,6 @@ class Box2DBody : public QObject, public QQmlParserStatus
 {
     Q_OBJECT
 
-    Q_ENUMS(BodyType)
     Q_PROPERTY(Box2DWorld *world READ world WRITE setWorld NOTIFY worldChanged)
     Q_PROPERTY(QQuickItem *target READ target WRITE setTarget NOTIFY targetChanged)
     Q_PROPERTY(float linearDamping READ linearDamping WRITE setLinearDamping NOTIFY linearDampingChanged)
@@ -69,6 +68,7 @@ public:
         Kinematic,
         Dynamic
     };
+    Q_ENUM(BodyType)
 
     explicit Box2DBody(QObject *parent = 0);
     ~Box2DBody();
@@ -176,8 +176,8 @@ private:
 
     static void append_fixture(QQmlListProperty<Box2DFixture> *list,
                                Box2DFixture *fixture);
-    static int count_fixture(QQmlListProperty<Box2DFixture> *list);
-    static Box2DFixture *at_fixture(QQmlListProperty<Box2DFixture> *list, int index);
+    static qsizetype count_fixture(QQmlListProperty<Box2DFixture> *list);
+    static Box2DFixture *at_fixture(QQmlListProperty<Box2DFixture> *list, qsizetype index);
     QPointF originOffset() const;
 };
 

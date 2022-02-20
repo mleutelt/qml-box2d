@@ -29,11 +29,10 @@
 
 #include <QQuickItem>
 
-class Box2DWorld;
+#include "box2dworld.h"
 
 class Box2DDebugDraw : public QQuickItem
 {
-    Q_ENUMS(DebugFlag)
     Q_OBJECT
 
     Q_PROPERTY(qreal axisScale READ axisScale WRITE setAxisScale NOTIFY axisScaleChanged)
@@ -49,6 +48,8 @@ public:
         CenterOfMass = 16,
         Everything = 31
     };
+    Q_ENUM(DebugFlag)
+
     explicit Box2DDebugDraw(QQuickItem *parent = 0);
 
     qreal axisScale() const;

@@ -47,9 +47,6 @@ class Box2DFixture : public QObject
     Q_PROPERTY(CategoryFlags collidesWith READ collidesWith WRITE setCollidesWith NOTIFY collidesWithChanged)
     Q_PROPERTY(int groupIndex READ groupIndex WRITE setGroupIndex NOTIFY groupIndexChanged)
 
-    Q_ENUMS(CategoryFlag)
-    Q_FLAGS(CategoryFlags)
-
 public:
     explicit Box2DFixture(QObject *parent = 0);
 
@@ -58,8 +55,8 @@ public:
                        Category9 = 0x0100, Category10 = 0x0200, Category11 = 0x0400, Category12 = 0x0800,
                        Category13 = 0x1000, Category14 = 0x2000, Category15 = 0x4000, Category16 = 0x8000,
                        All = 0xFFFF, None=0x0000};
-
     Q_DECLARE_FLAGS(CategoryFlags, CategoryFlag)
+    Q_FLAG(CategoryFlags)
 
     float density() const;
     void setDensity(float density);
@@ -106,8 +103,6 @@ protected:
     b2FixtureDef mFixtureDef;
     Box2DBody *mBody;
 };
-
-Q_DECLARE_OPERATORS_FOR_FLAGS(Box2DFixture::CategoryFlags)
 
 class Box2DBox : public Box2DFixture
 {
